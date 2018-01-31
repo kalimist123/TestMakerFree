@@ -11,6 +11,10 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { QuizListComponent } from './components/quiz/quiz-list.component';
+import { QuizComponent } from './components/quiz/quiz.component';
+import { AboutComponent } from './components/about/about.component';
+import { LoginComponent } from './components/login/login.component';
+import { PageNotFoundComponent } from './components/pagenotfound/pagenotfound.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -18,7 +22,14 @@ import { QuizListComponent } from './components/quiz/quiz-list.component';
         CounterComponent,
         FetchDataComponent,
         HomeComponent,
-        QuizListComponent
+        QuizListComponent,
+        QuizComponent,
+        AboutComponent,
+        LoginComponent,
+        PageNotFoundComponent
+
+
+
     ],
     imports: [
         CommonModule,
@@ -28,9 +39,13 @@ import { QuizListComponent } from './components/quiz/quiz-list.component';
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
+            { path: 'quiz/:id', component: QuizComponent },
+            { path: 'about', component: AboutComponent },
+            { path: 'login', component: LoginComponent },
+            { path: 'pagenotfound', component: PageNotFoundComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
-            { path: '**', redirectTo: 'home' }
+            { path: '**', redirectTo: 'pagenotfound' }
         ])
     ]
 })
