@@ -7,6 +7,10 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Mapster" Version="3.1.8" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
@@ -31,13 +35,31 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\components\answer\answer-edit.component.ts" />
+    <None Remove="ClientApp\app\components\answer\answer-list.component.ts" />
+    <None Remove="ClientApp\app\components\question\question-edit.component.ts" />
+    <None Remove="ClientApp\app\components\question\question-list.component.ts" />
     <None Remove="ClientApp\app\components\quiz\quiz-list.component.ts" />
+    <None Remove="ClientApp\app\components\result\result-edit.component.ts" />
+    <None Remove="ClientApp\app\components\result\result-list.component.ts" />
+    <None Remove="ClientApp\interfaces\answer.ts" />
+    <None Remove="ClientApp\interfaces\Question.ts" />
     <None Remove="ClientApp\interfaces\quiz.ts" />
+    <None Remove="ClientApp\interfaces\result.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\components\answer\answer-list.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\answer\answer-edit.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\question\question-edit.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\question\question-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\quiz\quiz-list.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\result\result-edit.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\result\result-list.component.ts" />
+    <TypeScriptCompile Include="ClientApp\interfaces\answer.ts" />
+    <TypeScriptCompile Include="ClientApp\interfaces\question.ts" />
     <TypeScriptCompile Include="ClientApp\interfaces\quiz.ts" />
+    <TypeScriptCompile Include="ClientApp\interfaces\result.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

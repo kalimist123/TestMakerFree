@@ -10,19 +10,16 @@ using TestMakerFreeWebApp.Data.Models;
 
 namespace TestMakerFreeWebApp.Controllers
 {
-    [Route("api/[controller]")]
-    public class QuizController : Controller
+  
+    public class QuizController : BaseApiController
     {
         #region Private Fields
-        private ApplicationDbContext DbContext;
+      
         #endregion
 
         #region Constructor
         public QuizController(ApplicationDbContext context)
-        {
-            // Instantiate the ApplicationDbContext through DI
-            DbContext = context;
-        }
+            : base(context) { }
 
 
         #endregion Constructor
@@ -51,11 +48,8 @@ namespace TestMakerFreeWebApp.Controllers
             }
 
             return new JsonResult(
-                quiz.Adapt<QuizViewModel>(),
-                new JsonSerializerSettings()
-                {
-                    Formatting = Formatting.Indented
-                });
+                quiz.Adapt<QuizViewModel>(), JsonSettings);
+
         }
         #endregion
 
@@ -100,10 +94,7 @@ namespace TestMakerFreeWebApp.Controllers
                 .ToArray();
             return new JsonResult(
                 byTitle.Adapt<QuizViewModel[]>(),
-                new JsonSerializerSettings()
-                {
-                    Formatting = Formatting.Indented
-                });
+                JsonSettings);
         }
 
         /// <summary>
@@ -120,11 +111,8 @@ namespace TestMakerFreeWebApp.Controllers
                 .Take(num)
                 .ToArray();
             return new JsonResult(
-                random.Adapt<QuizViewModel[]>(),
-                new JsonSerializerSettings()
-                {
-                    Formatting = Formatting.Indented
-                });
+                random.Adapt<QuizViewModel[]>(), JsonSettings
+                );
         }
 
         #region RESTful conventions methods 
@@ -156,8 +144,8 @@ namespace TestMakerFreeWebApp.Controllers
 
             // Set a temporary author using the Admin user's userId
             // as user login isn't supported yet: we'll change this later on.
-            quiz.UserId = DbContext.Users.Where(u => u.UserName == "Admin")
-                .FirstOrDefault().Id;
+            quiz.UserId = DbContext.Users
+                .FirstOrDefault(u => u.UserName == "Admin").Id;
 
             // add the new quiz
             DbContext.Quizzes.Add(quiz);
@@ -165,11 +153,8 @@ namespace TestMakerFreeWebApp.Controllers
             DbContext.SaveChanges();
 
             // return the newly-created Quiz to the client.
-            return new JsonResult(quiz.Adapt<QuizViewModel>(),
-                new JsonSerializerSettings()
-                {
-                    Formatting = Formatting.Indented
-                });
+            return new JsonResult(quiz.Adapt<QuizViewModel>(), JsonSettings);
+
         }
 
         /// <summary> 
@@ -212,11 +197,8 @@ namespace TestMakerFreeWebApp.Controllers
             DbContext.SaveChanges();
 
             // return the updated Quiz to the client.
-            return new JsonResult(quiz.Adapt<QuizViewModel>(),
-                new JsonSerializerSettings()
-                {
-                    Formatting = Formatting.Indented
-                });
+            return new JsonResult(quiz.Adapt<QuizViewModel>(), JsonSettings
+                );
 
 
 
