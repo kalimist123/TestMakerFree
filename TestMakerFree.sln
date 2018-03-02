@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMakerFreeWebApp", "TestMakerFreeWebApp\TestMakerFreeWebApp.csproj", "{5634AF79-C216-487B-A69E-C2FFA06007F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestMakerFreeWebApp", "TestMakerFreeWebApp\TestMakerFreeWebApp.csproj", "{5634AF79-C216-487B-A69E-C2FFA06007F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		LessCompiler = 5634af79-c216-487b-a69e-c2ffa06007f6
 		SolutionGuid = {AEBDBFA2-9EDB-400A-A320-D5B438999567}
 	EndGlobalSection
 EndGlobal
