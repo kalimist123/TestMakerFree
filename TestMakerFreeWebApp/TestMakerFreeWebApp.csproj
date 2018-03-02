@@ -40,6 +40,7 @@
     <None Remove="ClientApp\app\components\question\question-edit.component.ts" />
     <None Remove="ClientApp\app\components\question\question-list.component.ts" />
     <None Remove="ClientApp\app\components\quiz\quiz-list.component.ts" />
+    <None Remove="ClientApp\app\components\quiz\quiz-search.component.ts" />
     <None Remove="ClientApp\app\components\result\result-edit.component.ts" />
     <None Remove="ClientApp\app\components\result\result-list.component.ts" />
     <None Remove="ClientApp\interfaces\answer.ts" />
@@ -54,6 +55,7 @@
     <TypeScriptCompile Include="ClientApp\app\components\question\question-edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\question\question-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\quiz\quiz-list.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\quiz\quiz-search.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\result\result-edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\result\result-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\interfaces\answer.ts" />
@@ -62,7 +64,12 @@
     <TypeScriptCompile Include="ClientApp\interfaces\result.ts" />
   </ItemGroup>
 
-  <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
+  <ItemGroup>
+    <Folder Include="wwwroot\dist\res\img\" />
+  </ItemGroup>
+
+  <!--<Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') "> -->
+    <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug'  ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
       <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
